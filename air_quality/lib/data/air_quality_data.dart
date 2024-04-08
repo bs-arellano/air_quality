@@ -1,15 +1,15 @@
-class Album {
+class AirQualityData {
   final String name;
   final int value;
   final String unit;
   final int date;
-  const Album(
+  const AirQualityData(
       {required this.name,
       required this.value,
       required this.unit,
       required this.date});
 
-  factory Album.fromJson(Map<String, dynamic> json) {
+  factory AirQualityData.fromJson(Map<String, dynamic> json) {
     return switch (json) {
       {
         'name': String name,
@@ -17,7 +17,7 @@ class Album {
         'unit': String unit,
         'date': int date,
       } =>
-        Album(name: name, value: value, unit: unit, date: date),
+        AirQualityData(name: name, value: value, unit: unit, date: date),
       _ => throw const FormatException('Failed to load album'),
     };
   }

@@ -21,15 +21,21 @@ class PositionManager {
   Future<void> startService() async {
     //Cheks if location service is enabled
     serviceEnabled = await Geolocator.isLocationServiceEnabled();
+    print('serviceEnabled: $serviceEnabled');
     if (serviceEnabled) {
       //Gets location permission
       permission = await Geolocator.checkPermission();
+      print('permission: $permission');
       if (permission == LocationPermission.denied) {
         permission = await Geolocator.requestPermission();
         if (permission == LocationPermission.always ||
             permission == LocationPermission.whileInUse) {
+          currentPositon = await Geolocator.getCurrentPosition();
           active = true;
         }
+      } else {
+        currentPositon = await Geolocator.getCurrentPosition();
+        active = true;
       }
     }
   }
@@ -39,10 +45,16 @@ class PositionManager {
     startService();
   }
   Future updatePosition() async {
-    currentPositon = await Geolocator.getCurrentPosition();
+    if (active) {
+      currentPositon = await Geolocator.getCurrentPosition();
+    }
   }
 
   Position getPosition() {
     return currentPositon;
+  }
+
+  bool isActive() {
+    return active;
   }
 }
