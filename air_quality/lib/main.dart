@@ -130,8 +130,8 @@ class _MainAppState extends State<MainApp> {
   Scaffold startingScreen() {
     const Scaffold splashScreen = Scaffold(
       body: Center(
-        child: FlutterLogo(
-          size: 50,
+        child: Image(
+          image: AssetImage("assets/app_logo_512.png"),
         ),
       ),
     );
@@ -140,6 +140,7 @@ class _MainAppState extends State<MainApp> {
 
   Scaffold appScreen() {
     Scaffold loadedApp = Scaffold(
+      appBar: AppBar(title: const Center(child: Text("Air Quality"))),
       body: _appTabs.elementAt(_selectedIndex),
       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[

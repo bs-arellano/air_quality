@@ -24,9 +24,9 @@ class LoginFormState extends State<LoginForm> {
                   child: Column(
                     children: <Widget>[
                       const Padding(
-                          padding: const EdgeInsets.all(10),
-                          child: FlutterLogo(
-                            size: 100,
+                          padding: EdgeInsets.all(10),
+                          child: Image(
+                            image: AssetImage("assets/app_logo_128.png"),
                           )),
                       Padding(
                           padding: const EdgeInsets.all(10),

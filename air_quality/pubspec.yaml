@@ -93,3 +93,7 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+  assets:
+    - assets/app_logo.svg
+    - assets/app_logo_512.png
+    - assets/app_logo_128.png
